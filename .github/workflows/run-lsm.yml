@@ -1,0 +1,21 @@
+name: Run LSM Tests
+
+on:
+  push:
+    paths:
+      - 'part4_lsm.py'
+      - '.github/workflows/run-lsm.yml'
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Run LSM tests
+        run: python3 part4_lsm.py
